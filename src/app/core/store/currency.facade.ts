@@ -16,9 +16,9 @@ export class CurrencyFacade {
     select(currencySelectors.selectCurrencyData)
   );
 
-  constructor(private readonly store: Store<CurrencyState>) { }
+  constructor(private readonly store: Store<CurrencyState>) {}
 
-  public loadCurrencys(): void {
+  public loadCurrency(): void {
     this.store.dispatch(currencyActions.LoadCurrencies());
   }
 }

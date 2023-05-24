@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { CurrencyFacade } from './core/store/currency.facade';
 import { CurrencyState } from './core/store/reducers/currency.reducer';
 
 @Component({
@@ -7,8 +8,11 @@ import { CurrencyState } from './core/store/reducers/currency.reducer';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent  {
+export class AppComponent implements OnInit {
   title = 'currency_converter';
 
-  constructor(private readonly store: Store<CurrencyState>) {}
+  constructor(private readonly currencyFacada: CurrencyFacade) {}
+  ngOnInit(): void {
+    this.currencyFacada.loadCurrency()
+  }
 }
