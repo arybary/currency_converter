@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { CurrencyFacade } from './core/store/currency.facade';
-import { CurrencyState } from './core/store/reducers/currency.reducer';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +11,6 @@ export class AppComponent implements OnInit {
 
   constructor(private readonly currencyFacada: CurrencyFacade) {}
   ngOnInit(): void {
-    this.currencyFacada.loadCurrency()
+    this.currencyFacada.loadCurrency();
   }
 }
