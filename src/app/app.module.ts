@@ -7,7 +7,9 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
-import { CurrencyEffects } from './core/store/effects/currencies.effects';
+import { CurrencyEffects } from './core/store/effects/currency.effects';
+import { CurrencyConverterModule } from './currency-converter/currency-converter.module';
+import { CurrencyConverterComponent } from './currency-converter/components/currency-converter.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +17,7 @@ import { CurrencyEffects } from './core/store/effects/currencies.effects';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
+    CurrencyConverterModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot(),
 
@@ -23,4 +26,4 @@ import { CurrencyEffects } from './core/store/effects/currencies.effects';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

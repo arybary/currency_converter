@@ -4,8 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreModule, MetaReducer, ActionReducer } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { currencyFeatureKey, reducer } from './store/reducers/currency.reducer';
-import { CurrencyEffects } from './store/effects/currencies.effects';
-import { CurrencyApiService } from './services/currency.service';
+import { CurrencyEffects } from './store/effects/currency.effects';
 import { CurrencyFacade } from './store/currency.facade';
 
 export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
@@ -30,4 +29,4 @@ export const metaReducers: MetaReducer<any>[] = [debug];
   ],
   providers: [CurrencyFacade],
 })
-export class CoreModule {}
+export class CoreModule { }

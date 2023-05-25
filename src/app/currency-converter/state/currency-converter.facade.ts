@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { CurrencyState } from './reducers/currency.reducer';
-import * as currencyActions from './actions/currency.actions';
+import { CurrencyState } from './reducers/currency-converter.reducer';
+import * as currencyActions from './actions/currency-converter.actions';
 import * as currencySelectors from './selectors/currency.selectors';
 import { Currency } from '../model/currency.model';
 
@@ -16,7 +16,7 @@ export class CurrencyFacade {
     select(currencySelectors.selectCurrencyData)
   );
 
-  constructor(private readonly store: Store<CurrencyState>) {}
+  constructor(private readonly store: Store<CurrencyState>) { }
 
   public loadCurrency(): void {
     this.store.dispatch(currencyActions.LoadCurrencies());

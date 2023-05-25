@@ -22,12 +22,11 @@ const currencyReducer = createReducer(
     CurrencyActions.LoadCurrencies,
     (state): CurrencyState => ({
       ...state,
-      loaded: false,
+      loaded: true,
       error: null,
     })
   ),
   on(CurrencyActions.LoadCurrenciesSuccess, (state, { data }) => {
-    console.log(state, data);
     return {
       ...state,
       currencies: data,
@@ -43,7 +42,6 @@ const currencyReducer = createReducer(
     })
   )
 );
-
 
 export function reducer(state: CurrencyState | undefined, action: Action) {
   return currencyReducer(state, action);

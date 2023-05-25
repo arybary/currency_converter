@@ -20,7 +20,6 @@ export class CurrencyEffects {
       mergeMap(() =>
         this.apiService.getExchangeRates().pipe(
           map((data: Currency[]) => {
-            console.log(data);
             return currencyActions.LoadCurrenciesSuccess({ data });
           }),
           catchError((error) =>
