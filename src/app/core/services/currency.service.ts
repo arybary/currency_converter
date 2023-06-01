@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Currency } from '../model/currency.model';
-
+import { apiUrlNBU } from '../constans/baseCurrencyRate';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CurrencyApiService {
-  private apiUrl = 'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json';
+  private apiUrl = apiUrlNBU;
 
   constructor(private http: HttpClient) {}
 

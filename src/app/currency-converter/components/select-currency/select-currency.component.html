@@ -1,1 +1,24 @@
-<p>select-currency works!</p>
+<mat-form-field>
+  <mat-label
+    >{{ label }}
+    <span
+      class="fi fi-{{ selectedCurrency | currencyIcon }}"
+      alt="flag-icon"
+    ></span
+  ></mat-label>
+  <mat-select
+    matNativeControl
+    [(ngModel)]="selectedCurrency"
+    (ngModelChange)="onCurrencyChange()"
+  >
+    <ng-container *ngIf="currencies$ | async as currencies">
+      <mat-option *ngFor="let currency of currencies" [value]="currency.cc">
+        <span
+          class="fi fi-{{ currency.cc | currencyIcon }}"
+          alt="flag-icon"
+        ></span
+        >{{ currency.cc }}-{{ currency.txt }}</mat-option
+      >
+    </ng-container>
+  </mat-select>
+</mat-form-field>

@@ -6,13 +6,13 @@ export const currencyFeatureKey = 'currency';
 
 export interface CurrencyState {
   currencies: Currency[];
-  loaded: boolean;
+  loading: boolean;
   error?: string | null;
 }
 
 const initialCurrenciestate: CurrencyState = {
   currencies: [],
-  loaded: false,
+  loading: false,
   error: null,
 };
 
@@ -22,15 +22,15 @@ const currencyReducer = createReducer(
     CurrencyActions.LoadCurrencies,
     (state): CurrencyState => ({
       ...state,
-      loaded: true,
-      error: null,
+      loading: true,
+   
     })
   ),
   on(CurrencyActions.LoadCurrenciesSuccess, (state, { data }) => {
     return {
       ...state,
       currencies: data,
-      loaded: true,
+      loading: false,
       error: null,
     };
   }),

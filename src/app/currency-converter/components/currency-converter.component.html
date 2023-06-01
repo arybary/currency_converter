@@ -1,3 +1,25 @@
-<p>currency-converter works!</p>
-<input-amount></input-amount>
-<select-currency></select-currency>
+<div class="converter"><input-amount
+  id="2"
+  [label]="'amountTo'"
+  [amount]="toAmount$ | async"
+  (amountChange)="onAmountToChange($event)"
+></input-amount>
+
+  <select-currency
+    [label]="'currencyTo'"
+    [selectedCurrency]="toCurrency$ | async"
+    (currencyChange)="onCurrencyChange($event)"
+  ></select-currency>
+  <select-currency
+    [label]="'currencyFrom'"
+    [selectedCurrency]="fromCurrency$ | async"
+    (currencyChange)="onCurrencyChange($event)"
+  ></select-currency>
+
+<input-amount
+  id="1"
+  [label]="'amountFrom'"
+  [amount]="fromAmount$ | async"
+  (amountChange)="onAmountFromChange($event)"
+></input-amount>
+</div>

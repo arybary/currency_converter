@@ -1,32 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { StoreModule, MetaReducer, ActionReducer } from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { currencyFeatureKey, reducer } from './store/reducers/currency.reducer';
+import * as fromCurrency from './store/reducers/currency.reducer';
 import { CurrencyEffects } from './store/effects/currency.effects';
 import { CurrencyFacade } from './store/currency.facade';
+import { RouterModule } from '@angular/router';
+import { LayoutComponent } from './layout/layout.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
-  return function (state, action) {
-    console.log('state', state);
-    console.log('action', action);
-
-    return reducer(state, action);
-  };
-}
-
-export const metaReducers: MetaReducer<any>[] = [debug];
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
+  declarations: [LayoutComponent, HeaderComponent],
   imports: [
     CommonModule,
+    RouterModule,
     HttpClientModule,
-    StoreModule.forFeature(currencyFeatureKey, reducer, {
-      metaReducers,
-    }),
+    MatProgressSpinnerModule,
+    MatToolbarModule,
+    StoreModule.forFeature(
+      fromCurrency.currencyFeatureKey,
+      fromCurrency.reducer
+    ),
     EffectsModule.forFeature([CurrencyEffects]),
   ],
   providers: [CurrencyFacade],
 })
-export class CoreModule { }
+export class CoreModule {}

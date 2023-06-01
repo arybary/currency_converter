@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CurrencyConversionService } from './currency-conversion.service';
+import { CurrencyConverterService } from './currency-converter.service';
 
 describe('CurrencyConversionService', () => {
-  let service: CurrencyConversionService;
+  let service: CurrencyConverterService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(CurrencyConversionService);
+    service = TestBed.inject(CurrencyConverterService);
   });
 
   it('should be created', () => {

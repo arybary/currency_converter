@@ -14,7 +14,7 @@ export const selectCurrencyData = createSelector(
 
 export const selectCurrencyLoading = createSelector(
   selectCurrencyState,
-  (state) => state.loaded
+  (state) => state.loading
 );
 
 export const selectCurrencyError = createSelector(
