@@ -20,7 +20,7 @@ export class SelectCurrencyComponent {
   @Input() selectedCurrency: any;
   @Input() label: any;
 
-  currencies$: Observable<Currency[]> = this.currencyFacade.currencies$;
+  public readonly currencies$: Observable<Currency[]> = this.currencyFacade.currencies$;
 
   constructor(private readonly currencyFacade: CurrencyFacade) {}
 

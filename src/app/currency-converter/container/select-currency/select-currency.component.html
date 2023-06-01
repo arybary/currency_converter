@@ -1,4 +1,6 @@
-<mat-form-field>
+
+
+<mat-form-field   class="currency-form" >
   <mat-label
     >{{ label }}
     <span
@@ -8,6 +10,7 @@
   ></mat-label>
   <mat-select
     matNativeControl
+    class="currency-select"
     [(ngModel)]="selectedCurrency"
     (ngModelChange)="onCurrencyChange()"
   >
@@ -22,3 +25,5 @@
     </ng-container>
   </mat-select>
 </mat-form-field>
+
+

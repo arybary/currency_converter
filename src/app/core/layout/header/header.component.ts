@@ -1,4 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Currency } from '../../model/currency.model';
+import { CurrencyFacade } from '../../state/currency.facade';
 
 @Component({
   selector: 'header',
@@ -7,7 +10,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent {
-  usdRate=1;
-  eurRate=1
+  public readonly currencies$: Observable<Currency[]> = this.currencyFacade.currencyForHeader$;
 
+  constructor(private readonly currencyFacade: CurrencyFacade) {}
 }

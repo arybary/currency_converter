@@ -1,12 +1,17 @@
 <mat-toolbar >
-  <div class="currency-container">
-    <mat-icon class="currency-icon">euro_symbol</mat-icon>
-    <span class="currency-label">{{ eurRate }}</span>
+  <ng-container *ngIf="currencies$ | async as currencies">
+  <div class="currency-container" *ngFor="let currency of currencies">
+    <span
+    class="currency-option-icon fi fi-{{ currency.cc | currencyIcon }}"
+    alt="flag-icon"
+  ></span>/     <span
+  class="currency-option-icon fi fi-ua"
+  alt="flag-icon"
+></span>
+    <span class="currency-label">{{ currency.rate | number: '1.2-2'}}</span>
   </div>
-  <div class="currency-container">
-    <mat-icon class="currency-icon">attach_money</mat-icon>
-    <span class="currency-label">{{ usdRate }}</span>
-  </div>
+
+  </ng-container>
   <span class="spacer"></span>
   <button mat-button routerLink="/converter">Конвертер</button>
   <button mat-button routerLink="/contacts">Контакти</button>

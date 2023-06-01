@@ -17,14 +17,13 @@ import {
 import { ConverterFacade } from './state/converter.facade';
 import { EffectsModule } from '@ngrx/effects';
 import { ConverterEffects } from './state/effects/converter.effects';
-import { CurrencyPipe } from '../shared/pipe/currency.pipe';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
     CurrencyConverterComponent,
     InputAmountComponent,
     SelectCurrencyComponent,
-    CurrencyPipe,
   ],
   imports: [
     CommonModule,
@@ -34,6 +33,7 @@ import { CurrencyPipe } from '../shared/pipe/currency.pipe';
     MatInputModule,
     MatIconModule,
     MatSelectModule,
+    SharedModule,
     RouterModule.forChild([
       { path: '', component: CurrencyConverterComponent },
     ]),

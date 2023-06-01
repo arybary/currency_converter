@@ -17,6 +17,7 @@ import { ContactsComponent } from './container/contacts/contacts.component';
 import { NotFoundPageComponent } from './container/not-found-page/not-found-page.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MatListModule } from '@angular/material/list';
     MatIconModule,
     MatButtonModule,
     MatListModule,
+    SharedModule,
     StoreModule.forFeature(
       fromCurrency.currencyFeatureKey,
       fromCurrency.reducer

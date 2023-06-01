@@ -6,14 +6,14 @@ import { Observable, of } from 'rxjs';
 import * as currencyActions from '../actions/currency.actions';
 import { CurrencyApiService } from '../../services/currency.service';
 import { Currency } from '../../model/currency.model';
-import { currencyUah } from '../../constans/baseCurrencyRate';
+import { currencyUah } from '../../constans';
 
 @Injectable({ providedIn: 'root' })
 export class CurrencyEffects {
   constructor(
     private actions$: Actions,
     private apiService: CurrencyApiService
-  ) {}
+  ) { }
 
   load$: Observable<Action> = createEffect(() => {
     return this.actions$.pipe(
@@ -22,7 +22,7 @@ export class CurrencyEffects {
       mergeMap(() =>
         this.apiService.getExchangeRates().pipe(
           map((data: Currency[]) => {
-            data.push(currencyUah);
+            data.unshift(currencyUah);
             return currencyActions.LoadCurrenciesSuccess({ data });
           }),
           catchError((error) =>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, filter, map, switchMap, tap, withLatestFrom } from 'rxjs';
+import { map, switchMap, withLatestFrom } from 'rxjs';
 import { CurrencyConverterService } from '../../services/currency-converter.service';
 import * as ConverterActions from '../actions/converter.actions';
 import { ConverterFacade } from '../converter.facade';
@@ -28,10 +28,7 @@ export class ConverterEffects {
       switchMap(([, toCurrency, fromCurrency, toAmount]) =>
         this.converterService.convert(fromCurrency, toCurrency, toAmount)
       ),
-      map((amount) => {
-        console.log(amount);
-        return ConverterActions.setAmountFrom({ amount });
-      })
+      map((amount) => ConverterActions.setAmountFrom({ amount }))
     )
   );
   getAmountTo$ = createEffect(() =>

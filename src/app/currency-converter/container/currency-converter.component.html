@@ -1,10 +1,10 @@
-<div class="converter"><input-amount
-  id="2"
-  [label]="'amountTo'"
-  [amount]="toAmount$ | async"
-  (amountChange)="onAmountToChange($event)"
-></input-amount>
-
+<div class="converter">
+  <input-amount
+    [label]="'amountTo'"
+    [amount]="toAmount$ | async"
+    (amountChange)="onAmountToChange($event)"
+  ></input-amount>
+<div class="converter-selects">
   <select-currency
     [label]="'currencyTo'"
     [selectedCurrency]="toCurrency$ | async"
@@ -15,11 +15,10 @@
     [selectedCurrency]="fromCurrency$ | async"
     (currencyChange)="onCurrencyChange($event)"
   ></select-currency>
-
-<input-amount
-  id="1"
-  [label]="'amountFrom'"
-  [amount]="fromAmount$ | async"
-  (amountChange)="onAmountFromChange($event)"
-></input-amount>
+</div>
+  <input-amount
+    [label]="'amountFrom'"
+    [amount]="fromAmount$ | async"
+    (amountChange)="onAmountFromChange($event)"
+  ></input-amount>
 </div>

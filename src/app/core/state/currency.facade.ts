@@ -8,12 +8,15 @@ import { Currency } from '../model/currency.model';
 
 @Injectable()
 export class CurrencyFacade {
-
-  public readonly loading$: Observable<boolean> = this.store.pipe(select(
-    currencySelectors.selectCurrencyLoading
-  ));
+  public readonly loading$: Observable<boolean> = this.store.pipe(
+    select(currencySelectors.selectCurrencyLoading)
+  );
   public readonly currencies$: Observable<Currency[]> = this.store.pipe(
     select(currencySelectors.selectCurrencyData)
+  );
+
+  public readonly currencyForHeader$: Observable<Currency[]> = this.store.pipe(
+    select(currencySelectors.selectCurrencyForHeader)
   );
 
   constructor(private readonly store: Store<CurrencyState>) {}
