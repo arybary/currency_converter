@@ -24,7 +24,3 @@ export const selectCurrencyFrom = createSelector(
   selectConverterState,
   (state) => state.currencyFrom
 );
-export const selectRate = createSelector(
-  selectConverterState,
-  (state) => state.rate
-);

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Currency } from 'src/app/core/model/currency.model';
-import { CurrencyFacade } from 'src/app/core/store/currency.facade';
+import { CurrencyFacade } from 'src/app/core/state/currency.facade';
 
 @Injectable({
   providedIn: 'root',
@@ -29,9 +29,9 @@ export class CurrencyConverterService {
 
     if (baseRate && targetRate) {
      const amountConverted=Number(((amount * targetRate) / baseRate).toFixed(2));
-      return of(amountConverted); // Возвращает курс обмена (targetCurrency / baseCurrency)
+      return of(amountConverted);
     } else {
-      return of(1); // Возвращает 0 в случае, если курс обмена не найден
+      return of(1);
     }
   }
 }

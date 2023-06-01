@@ -26,9 +26,7 @@ export class ConverterFacade {
   public readonly currencyFrom$: Observable<string> = this.store.pipe(
     select(converterSelectors.selectCurrencyFrom)
   );
-  public readonly rate$: Observable<number> = this.store.pipe(
-    select(converterSelectors.selectRate)
-  );
+
   constructor(private readonly store: Store<ConverterState>) {}
 
   public initConverter(): void {
@@ -42,10 +40,10 @@ export class ConverterFacade {
     this.store.dispatch(converterActions.setAmountFrom({ amount }));
   }
   public convertAmountTo(): void {
-    this.store.dispatch(converterActions.convertToAmount());
+    this.store.dispatch(converterActions.convertAmountTo());
   }
   public convertAmountFrom(): void {
-    this.store.dispatch(converterActions.convertFromAmount());
+    this.store.dispatch(converterActions.convertAmountFrom());
   }
 
   public setCurrency(

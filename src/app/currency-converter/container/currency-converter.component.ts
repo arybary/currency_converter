@@ -5,7 +5,7 @@ import { ConverterFacade } from '../state/converter.facade';
 
 export interface SelectedCurrency {
   currency: string;
-  label: CurrencyConvert;
+  convertCurrency: CurrencyConvert;
 }
 
 @Component({
@@ -15,7 +15,6 @@ export interface SelectedCurrency {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CurrencyConverterComponent implements OnInit {
-  exchangeRate$: Observable<number> = this.converterFacade.rate$;
   toCurrency$: Observable<string> = this.converterFacade.currencyTo$;
   fromCurrency$: Observable<string> = this.converterFacade.currencyFrom$;
   toAmount$: Observable<number> = this.converterFacade.amountTo$;
@@ -38,7 +37,7 @@ export class CurrencyConverterComponent implements OnInit {
   }
 
   onCurrencyChange(currencySelected: SelectedCurrency): void {
-    const { label, currency } = currencySelected;
-    this.converterFacade.setCurrency(label, currency);
+    const { convertCurrency, currency } = currencySelected;
+    this.converterFacade.setCurrency(convertCurrency, currency);
   }
 }

@@ -1,14 +1,24 @@
 :host {
   display: block;
-
 }
 
 mat-toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height:20vh;
+  background-color: rgb(66, 68, 66);
 }
 
-.spacer {
-  flex: 1 1 auto;
+.currency-container {
+  display: flex;
+  align-items: center;
+}
+
+.currency-icon {
+  margin-right: 5px;
+}
+
+.currency-label {
+  font-weight: bold;
 }

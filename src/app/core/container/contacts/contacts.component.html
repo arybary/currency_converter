@@ -1,0 +1,11 @@
+<mat-card class="contacts-card">
+  <mat-card-header>
+    <mat-card-title>Медвідь Ростислав</mat-card-title></mat-card-header
+  >
+  <mat-card-content>
+    <div class="contact-item" *ngFor="let contact of contacts">
+      <mat-icon class="contact-icon">{{ contact.icon }}</mat-icon>
+      <a href="{{ contact.url }}" class="contact-label">{{ contact.label }}</a>
+    </div>
+  </mat-card-content>
+</mat-card>

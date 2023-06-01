@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { CurrencyFacade } from '../store/currency.facade';
+import { CurrencyFacade } from '../state/currency.facade';
 
 @Component({
   selector: 'app-layout',

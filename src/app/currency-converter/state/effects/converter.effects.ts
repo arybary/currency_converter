@@ -18,7 +18,7 @@ export class ConverterEffects {
       ofType(
         ConverterActions.initConverter,
         ConverterActions.setSelectedCurrency,
-        ConverterActions.convertFromAmount
+        ConverterActions.convertAmountFrom
       ),
       withLatestFrom(
         this.converterFacade.currencyTo$,
@@ -36,7 +36,7 @@ export class ConverterEffects {
   );
   getAmountTo$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(ConverterActions.convertToAmount),
+      ofType(ConverterActions.convertAmountTo),
       withLatestFrom(
         this.converterFacade.currencyTo$,
         this.converterFacade.currencyFrom$,
@@ -45,10 +45,7 @@ export class ConverterEffects {
       switchMap(([, toCurrency, fromCurrency, fromAmount]) =>
         this.converterService.convert(toCurrency, fromCurrency, fromAmount)
       ),
-      map((amount) => {
-        console.log(amount);
-        return ConverterActions.setAmountTo({ amount });
-      })
+      map((amount) => ConverterActions.setAmountTo({ amount }))
     )
   );
 }

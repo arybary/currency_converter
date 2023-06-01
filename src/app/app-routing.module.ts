@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CoreModule } from './core/core.module';
+import { ContactsComponent } from './core/container/contacts/contacts.component';
+import { NotFoundPageComponent } from './core/container/not-found-page/not-found-page.component';
 import { LayoutComponent } from './core/layout/layout.component';
-import { CurrencyConverterComponent } from './currency-converter/components/currency-converter.component';
 
 const routes: Routes = [
   {
@@ -18,11 +18,12 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'about',
-        loadChildren: () =>
-          import('./currency-converter/currency-converter.module').then(
-            (m) => m.CurrencyConverterModule
-          ),
+        path: 'contacts',
+        component: ContactsComponent,
+      },
+      {
+        path: '**',
+        component: NotFoundPageComponent,
       },
     ],
   },

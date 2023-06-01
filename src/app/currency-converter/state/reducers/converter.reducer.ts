@@ -8,7 +8,6 @@ export interface ConverterState {
   amountFrom: number;
   currencyTo: string;
   currencyFrom: string;
-  rate: number;
 }
 
 const initialState: ConverterState = {
@@ -16,12 +15,13 @@ const initialState: ConverterState = {
   amountFrom: 0,
   currencyTo: 'USD',
   currencyFrom: 'UAH',
-  rate: 1,
 };
 
 const converterReducer = createReducer(
   initialState,
   on(ConverterActions.initConverter, (state) => state),
+  on(ConverterActions.convertAmountFrom, (state) => state),
+  on(ConverterActions.convertAmountTo, (state) => state),
   on(ConverterActions.setAmountTo, (state, { amount }) => ({
     ...state,
     amountTo: amount,
@@ -37,11 +37,7 @@ const converterReducer = createReducer(
       ...state,
       [currencyConvert]: currency,
     })
-  ),
-  on(ConverterActions.getRate, (state, { rate }) => ({
-    ...state,
-    rate,
-  }))
+  )
 );
 
 export function reducer(state: ConverterState | undefined, action: Action) {

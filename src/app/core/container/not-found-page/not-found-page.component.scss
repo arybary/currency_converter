@@ -1,0 +1,14 @@
+:host {
+  text-align: center;
+  color:aliceblue;
+}
+
+mat-card-title,
+mat-card-content {
+  margin-top: 1rem;
+}
+
+mat-card-actions {
+  justify-content: center;
+  margin-top: 1rem;
+}
