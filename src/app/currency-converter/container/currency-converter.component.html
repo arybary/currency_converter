@@ -4,7 +4,7 @@
     [amount]="toAmount$ | async"
     (amountChange)="onAmountToChange($event)"
   ></input-amount>
-<div class="converter-selects">
+
   <select-currency
     [label]="'currencyTo'"
     [selectedCurrency]="toCurrency$ | async"
@@ -15,7 +15,7 @@
     [selectedCurrency]="fromCurrency$ | async"
     (currencyChange)="onCurrencyChange($event)"
   ></select-currency>
-</div>
+
   <input-amount
     [label]="'amountFrom'"
     [amount]="fromAmount$ | async"

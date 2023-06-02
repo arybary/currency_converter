@@ -12,11 +12,14 @@ mat-toolbar {
 
 .currency-container {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+
 }
 
-.currency-icon {
-  margin-right: 5px;
+.flag-icon {
+  font-size: 40px;
+  margin: 10px;
+  border-radius: 50%;
 }
 
 .currency-label {
