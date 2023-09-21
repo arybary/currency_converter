@@ -1,6 +1,15 @@
 # [CurrencyConverter](https://itop1000.vercel.app/converter)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
+### The tech stack is:
+ - [HTML5](https://en.wikipedia.org/wiki/HTML5)
+-- [CSS3](https://sass-lang.com/)
+- [TypeScript](https://ru.wikipedia.org/wiki/TypeScript)
+- [Angular](https://angular.io/)
+- [NgRX](https://ngrx.io/)
+- [RxJS](https://rxjs.dev/)
+- [boostrap](https://getbootstrap.com/)
+- [npx-boostrap](https://valor-software.com/ngx-bootstrap/#/)
 
 ## Development server
 
